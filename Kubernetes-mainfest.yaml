@@ -33,6 +33,29 @@ spec:
    - port: 80
      targetPort: 80
 
+---
+apiVersion: networking.k8s.io/v1
+kind: Ingress
+metadata:
+  name: running-ingress
+  namespace: running
+  annotations:
+    nginx.ingress.kubernetes.io/rewrite-target: /$2
+spec:
+  ingressClassName: nginx
+  rules:
+  - host: www.demo.in
+    http:
+      paths:
+      - path: /running(/|$)(.*)
+        pathType: Prefix
+        backend:
+          service:
+            name: running-service
+            port:
+              number: 80
+
+
 
 #---
 #apiVersion: v1

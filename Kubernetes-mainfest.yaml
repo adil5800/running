@@ -44,10 +44,10 @@ metadata:
 spec:
   ingressClassName: nginx
   rules:
-  - host: www.demo.in
+  - host: www.cyberrior.com
     http:
       paths:
-      - path: /running(/|$)(.*)
+      - path: /running
         pathType: Prefix
         backend:
           service:

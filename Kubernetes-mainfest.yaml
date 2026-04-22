@@ -40,14 +40,18 @@ metadata:
   name: running-ingress
   namespace: running
   annotations:
+    nginx.ingress.kubernetes.io/use-regex: "true"
     nginx.ingress.kubernetes.io/rewrite-target: /$2
+    
 spec:
-  ingressClassName: nginx
+  ingressClassName: webapprouting.kubernetes.azure.com
   rules:
   - host: www.cyberrior.com
     http:
       paths:
-      - path: /running
+      - path: /running(/|$)(.*)
+      #- path: /running
+       # pathType: ImplementationSpecific
         pathType: Prefix
         backend:
           service:

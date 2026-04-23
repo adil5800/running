@@ -16,7 +16,7 @@ spec:
     spec:
       containers:
       - name: running-container
-        image: adil5800/running:v2   # your Docker Hub image
+        image: adil5800/running:v3   # your Docker Hub image
         ports:
         - containerPort: 80
 
